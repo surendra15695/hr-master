@@ -1,0 +1,13 @@
+name: Sync code to MRF-LTD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync-repo:
+    uses: Embee-Software-Private-Limited/mrf-ltd-pipelines/.github/workflows/sync-repo.yml@main
+    with:
+        org-name: "${{ vars.MRF_ORG_NAME }}"
+        source-env: "mrf-ltd-sync"
+    secrets:
+      DEST_TOKEN: ${{ secrets.MRF_DEST_TOKEN }}
